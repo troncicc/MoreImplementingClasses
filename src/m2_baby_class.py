@@ -117,7 +117,6 @@ class Baby(object):
         if self.hour >= 3:
             print("Baby " + self.baby_name + " is CRYING uncontrollably!  Feed the Baby!")
 
-        return self.hour
 
 
 # ----------------------------------------------------------------------
