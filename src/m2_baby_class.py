@@ -2,8 +2,8 @@
 A   Baby   class and methods that use the Baby class.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Catianne Troncin.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -39,7 +39,7 @@ def main():
 
 
 # ----------------------------------------------------------------------
-# TODO: 2. Implement a class called   Baby   that has a constructor and
+# DONE: 2. Implement a class called   Baby   that has a constructor and
 #   two methods, as described below.  Your finished Baby class should
 #   cause the code above to display the expected output.  Hint: Your
 #   class will need instance variables that you must figure out.
@@ -89,11 +89,35 @@ def main():
 #          """ Brief description of what objects of the class 'are'. """
 #
 ########################################################################
+class Baby(object):
+    """These are thing the babies can do..."""
 
+    def __init__(self, baby_name):
+        self.hour = 0
+        self.baby_name = baby_name
+        print('Hello baby ' + baby_name + '!')
 
+    def feed_baby(self):
+        self.hour = 0
+        print("Thank you for feeding baby " + self.baby_name + "!")
 
+    def hour_passes(self):
+        """-- If it is the first time this function has been called since Baby was created or fed
+        -- Prints 'Baby <your baby's name> is sleeping.'
+        -- If it is the second time this function has been called since baby was created or fed
+        -- Prints 'Baby <your baby's name> is awake.  Time for food.'
+        -- If it is the third (or more) time this function has been called since baby was created or fed
+        -- Prints 'Baby <your baby's name> is CRYING uncontrollably!  Feed the Baby!'"""
+        self.hour = self.hour + 1
 
+        if self.hour == 1:
+            print("Baby " + self.baby_name + " is sleeping.")
+        if self.hour == 2:
+            print("Baby " + self.baby_name + " is awake.  Time for food.")
+        if self.hour >= 3:
+            print("Baby " + self.baby_name + " is CRYING uncontrollably!  Feed the Baby!")
 
+        return self.hour
 
 
 # ----------------------------------------------------------------------
