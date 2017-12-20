@@ -2,8 +2,8 @@
 A   CapitalT   class and methods that use the Cross class.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Catianne Troncin.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -14,8 +14,8 @@ def main():
     #   Uncomment only 1 test at a time as you develop your code.
     # --------------------------------------------------------------
 
-    # run_test_simple_t()
-    # run_test_set_colors()
+    run_test_simple_t()
+    run_test_set_colors()
     # run_test_move_by()
     # run_test_clone()
 
@@ -135,11 +135,17 @@ class CapitalT(object):
           :type letter_thickness:   int
         """
         # --------------------------------------------------------------
-        # TODO: 3.
+        # DONE: 3.
         #   READ the above specification, including the Example.
         #   Implement this method
         #   Note: you will need to also implement attach_to before testing
         # --------------------------------------------------------------
+        self.intersection_center = intersection_center.clone()
+        self.width = width
+        self.height = height
+        self.letter_thickness = letter_thickness
+        self.h_rect = rg.Rectangle(rg.Point(intersection_center.x - 1/2 * width, intersection_center.y + 1/2 * letter_thickness), rg.Point(intersection_center.x + 1/2 * width, intersection_center.y - 1/2 * letter_thickness))
+        self.v_rect = rg.Rectangle(rg.Point(intersection_center.x + 1/2 * letter_thickness, intersection_center.y - 1/2 * letter_thickness + height), rg.Point(intersection_center.x - 1/2 * letter_thickness, intersection_center.y - 1/2 * letter_thickness))
 
     def attach_to(self, window):
         """
@@ -160,11 +166,13 @@ class CapitalT(object):
           :type window: rg.RoseWindow
         """
         # --------------------------------------------------------------
-        # TODO: 4.
+        # DONE: 4.
         #   READ the above specification, including the Example.
         #   Implement and test this method by looking at the console and
         #     the graphics window (compare it to simple_t.pdf)
         # --------------------------------------------------------------
+        self.v_rect.attach_to(window)
+        self.h_rect.attach_to(window)
 
     def set_colors(self, fill_color, outline_color):
         """
