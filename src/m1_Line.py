@@ -225,8 +225,11 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        self.start = start
+        self.end = end
         self.start = start.clone()
         self.end = end.clone()
+
         self.clones = 0
 
     def __repr__(self):
@@ -708,9 +711,8 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
-        start = self.start
-        end = self.end
-        return Line(start, end)
+
+        return Line(self.start, self.end)
 
 
 ########################################################################
